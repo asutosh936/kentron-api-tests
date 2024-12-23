@@ -5,7 +5,8 @@ def test_successful_login(base_url):
     """Test Successful Login with Valid Credentials."""
     url = f"{base_url}/auth/login/"
     headers = {"Content-Type": "application/json"}
-    payload = {"email": "dishant@mangotech.com","password": "hello", 
+    payload = {"email": "dishant@mangotech.com",
+               "password": "hello", 
                "tenant_name": "mangotech"}
     response = requests.post(url, json=payload, headers=headers)
     assert response.status_code == 200
@@ -17,7 +18,8 @@ def test_un_successful_login_with_invalid_credentials(base_url):
     """Test Unsuccessful login with invalid credentials."""
     url = f"{base_url}/auth/login/"
     headers = {"Content-Type": "application/json"}
-    payload = {"email": "dishant1@mangotech.com","password": "hello1", 
+    payload = {"email": "dishant1@mangotech.com",
+               "password": "hello1", 
                "tenant_name": "mangotech1"}
     response = requests.post(url, json=payload, headers=headers)
     print(response.json().get("errors").get("non_field_errors"))

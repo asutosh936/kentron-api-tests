@@ -37,7 +37,8 @@ def global_setup_and_teardown():
 def auth_token():
     """
     Fixture to provide an authentication token for API requests.
-    This fixture is scoped to the session level, meaning it runs only once per session.
+    This fixture is scoped to the session level,
+    meaning it runs only once per session.
     """
     try:
         token = get_auth_token()
