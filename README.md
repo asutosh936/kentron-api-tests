@@ -43,7 +43,7 @@ project/
 
 #### Run the tests and generate the HTML report:
 ```python
-pytest tests/
+API_BASE_URL="<ENV_URL>" USER_EMAIL="<USERNAME>" USER_PASSWORD="<PASSWORD>" USER_TENANT="<TENANT>" pytest tests/
 
 ```
 #### After execution, the report will be available at `reports/kentron_test_report.html`.

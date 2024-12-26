@@ -1,3 +1,4 @@
+import os
 import pytest
 import logging
 from auth_helpers import get_auth_token
@@ -55,7 +56,9 @@ def base_url():
     Fixture to provide the base URL for API endpoints.
     This ensures that the base URL is consistent across all tests.
     """
-    url = "https://backend-dev.kentron.ai/api/v1"
+    print("Setting base URL %s", os.getenv("API_BASE_URL"))
+    url = os.getenv("API_BASE_URL")
+    # url = "https://backend-dev.kentron.ai/api/v1"
     logging.info(f"Base URL set to: {url}")
     return url
 

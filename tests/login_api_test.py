@@ -1,13 +1,14 @@
 import requests
+import os
 
 
 def test_successful_login(base_url):
     """Test Successful Login with Valid Credentials."""
     url = f"{base_url}/auth/login/"
     headers = {"Content-Type": "application/json"}
-    payload = {"email": "dishant@mangotech.com",
-               "password": "hello", 
-               "tenant_name": "mangotech"}
+    payload = {"email": os.getenv("USER_EMAIL"),
+               "password": os.getenv("USER_PASSWORD"),
+               "tenant_name": os.getenv("USER_TENANT")}
     response = requests.post(url, json=payload, headers=headers)
     assert response.status_code == 200
     assert response.json()["error"] == False
